@@ -30,9 +30,7 @@ class App extends Component{
   renderApp = () => {
     switch (this.state.loggedIn) {
       case true:
-        return (
-          <LoggedArea user={this.state.user} />
-        );
+        return <LoggedArea user={this.state.user} />;
       case false:
         return <LoginForm/>;
       default:
@@ -43,7 +41,7 @@ class App extends Component{
   render() {
     return(
       <View>
-        <Header text="Auth" />
+        <Header text="Authentication App" />
         {this.renderApp()}
       </View>
 
