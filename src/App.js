@@ -4,6 +4,7 @@ import {Header, Spinner, Button, Card, CardSection} from './common/';
 import firebase from 'firebase';
 import LoginForm from './LoginForm'
 import firebaseConfig from '../firebaseConfig'
+import LoggedArea from './LoggedArea';
 
 class App extends Component{
   constructor(props) {
@@ -30,20 +31,7 @@ class App extends Component{
     switch (this.state.loggedIn) {
       case true:
         return (
-          <View>
-          <Card>
-            <CardSection>
-              <Text>
-                    Welcome {this.state.user.email}
-              </Text>
-            </CardSection>
-          </Card>
-          <Card>
-            <CardSection>
-              <Button onPress={ () => firebase.auth().signOut()}>Log Out </Button>
-            </CardSection>
-          </Card>
-          </View>
+          <LoggedArea user={this.state.user} />
         );
       case false:
         return <LoginForm/>;
